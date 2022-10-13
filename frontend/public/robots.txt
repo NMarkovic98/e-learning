@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /authentication/login.js
+Allow: /authentication/register.js
+Allow: /student/
+Allow: /teacher/
+Disallow: /admin/
