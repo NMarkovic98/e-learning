@@ -13,11 +13,13 @@ import Popover from "@mui/material/Popover";
 import axios from "axios";
 
 export default function Home() {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null
+  );
 
   const navigate = useNavigate();
 
-  const openMenuHandler = (event) => {
+  const openMenuHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

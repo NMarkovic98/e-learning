@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import useFetch from "./lib/useFetch";
+import useFetch from "./hooks/useFetch";
 
-function App({ routes }) {
+interface AppRoutes {
+  routes: {
+    name: string;
+    role: string;
+    path: string;
+    component: JSX.Element;
+  }[];
+}
+
+function App({ routes }: AppRoutes) {
   const navigate = useNavigate();
 
   const userId = localStorage.getItem("userId");
+
   const { isLoading, isError, data } = useFetch(
     `${process.env.REACT_APP_BACKEND_URL}:${
       process.env.REACT_APP_BACKEND_PORT
@@ -20,9 +30,11 @@ function App({ routes }) {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
+
   if (isError) {
     return <h1>Error happened</h1>;
   }
+
   return (
     <Routes>
       {routes.map((route) => (
