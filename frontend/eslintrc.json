@@ -1,0 +1,16 @@
+ {
+  "root": true,
+  "extends": "airbnb-typescript/base",
+  "plugins": ["import", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "rules": {
+    "no-unused-vars": "on",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		]
+  }
+}
